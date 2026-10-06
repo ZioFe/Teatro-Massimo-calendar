@@ -6,4 +6,158 @@ METHOD:PUBLISH
 X-WR-CALNAME:Teatro Massimo - Turno Prime
 X-WR-TIMEZONE:Europe/Rome
 X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:8c57c9b3ac7d356d904ee886@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20261122T180000
+SUMMARY:Samson et Dalila
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nOpéra in tre atti e quattro quadri\nTurno Prime\nFont
+ e ufficiale: https://www.teatromassimo.it/event/samson-et-dalila/
+URL:https://www.teatromassimo.it/event/samson-et-dalila/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:acc831528de46da0fe38c3e3@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20261215T200000
+SUMMARY:Biancaneve
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Balletto
+DESCRIPTION:Balletto\nBalletto in tre atti\nTurno Prime\nFonte ufficiale:
+  https://www.teatromassimo.it/event/biancaneve-2/
+URL:https://www.teatromassimo.it/event/biancaneve-2/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:9bb426daa722a7f243b7c603@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270109T200000
+SUMMARY:Non dirmi che hai paura
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Spettacolo
+DESCRIPTION:Spettacolo\nTurno Prime\nFonte ufficiale: https://www.teatrom
+ assimo.it/event/non-dirmi-che-hai-paura/
+URL:https://www.teatromassimo.it/event/non-dirmi-che-hai-paura/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:6f1b1a0f9b8a64e25406a424@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270205T190000
+SUMMARY:Macbeth
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nMelodramma in quattro atti\nTurno Prime\nFonte ufficia
+ le: https://www.teatromassimo.it/event/macbeth/
+URL:https://www.teatromassimo.it/event/macbeth/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:8fe1db1dd786720b7091e008@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270305T200000
+SUMMARY:Lucia di Lammermoor
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nDramma tragico in tre atti\nTurno Prime\nFonte ufficia
+ le: https://www.teatromassimo.it/event/lucia-di-lammermoor-2/
+URL:https://www.teatromassimo.it/event/lucia-di-lammermoor-2/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:efaf2d8421f95bcdf6d9ce3e@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270323T200000
+SUMMARY:Il grande Gatsby
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Balletto
+DESCRIPTION:Balletto\nTurno Prime\nFonte ufficiale: https://www.teatromas
+ simo.it/event/il-grande-gatsby/
+URL:https://www.teatromassimo.it/event/il-grande-gatsby/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:c22e73e968aa2f06a0cb50ff@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270418T190000
+SUMMARY:Tosca
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nMelodramma in tre atti\nTurno Prime\nFonte ufficiale: 
+ https://www.teatromassimo.it/event/tosca-2/
+URL:https://www.teatromassimo.it/event/tosca-2/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:7bb288c70651a14fd03aa2b8@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270516T200000
+SUMMARY:Falstaff
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nCommedia lirica in tre atti\nTurno Prime\nFonte uffici
+ ale: https://www.teatromassimo.it/event/falstaff-2/
+URL:https://www.teatromassimo.it/event/falstaff-2/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:314f4213f20d93b988ed5f50@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270617T200000
+SUMMARY:Sylvia
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Balletto
+DESCRIPTION:Balletto\nBalletto in tre atti\nTurno Prime\nFonte ufficiale:
+  https://www.teatromassimo.it/event/sylvia/
+URL:https://www.teatromassimo.it/event/sylvia/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:4771fb9b07c57ae02e05258f@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20270915T200000
+SUMMARY:Die Zauberflöte
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nSingspiel in due atti\nTurno Prime\nFonte ufficiale: h
+ ttps://www.teatromassimo.it/event/die-zauberflote/
+URL:https://www.teatromassimo.it/event/die-zauberflote/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:02dee4b7cc30b70ba9c20637@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20271009T200000
+SUMMARY:Balanchine – Čajkovskij
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Danza
+DESCRIPTION:Danza\nSpettacolo di danza\nTurno Prime\nFonte ufficiale: htt
+ ps://www.teatromassimo.it/en/biglietteria/turno-prime/
+URL:https://www.teatromassimo.it/en/biglietteria/turno-prime/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:de15fc17e1c28dc3fc72d822@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20271031T200000
+SUMMARY:Ernani
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nDramma lirico in quattro parti\nTurno Prime\nFonte uff
+ iciale: https://www.teatromassimo.it/event/ernani-2/
+URL:https://www.teatromassimo.it/event/ernani-2/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:2dfe027d5e9c572388cbadd2@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20271124T190000
+SUMMARY:Carmen
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Opera
+DESCRIPTION:Opera\nOpéra-comique in quattro atti\nTurno Prime\nFonte uff
+ iciale: https://www.teatromassimo.it/event/carmen-3/
+URL:https://www.teatromassimo.it/event/carmen-3/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:178964c1419b7936233b032d@teatro-massimo-calendar
+DTSTART;TZID=Europe/Rome:20271214T200000
+SUMMARY:Lo schiaccianoci
+LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
+CATEGORIES:Balletto
+DESCRIPTION:Balletto\nBalletto in due atti\nTurno Prime\nFonte ufficiale:
+  https://www.teatromassimo.it/event/lo-schiaccianoci-4/
+URL:https://www.teatromassimo.it/event/lo-schiaccianoci-4/
+STATUS:CONFIRMED
+END:VEVENT
 END:VCALENDAR
