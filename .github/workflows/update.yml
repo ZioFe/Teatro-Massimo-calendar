@@ -1,0 +1,33 @@
+name: Aggiorna calendario Teatro Massimo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installa dipendenze
+        run: pip install -r requirements.txt
+      - name: Aggiorna calendario
+        run: python update_calendar.py
+      - name: Commit se cambia
+        run: |
+          git add teatro-massimo.ics
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Aggiorna calendario Teatro Massimo"
+          git push
