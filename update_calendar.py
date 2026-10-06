@@ -59,54 +59,38 @@ def get_rendered(url):
 def norm(s):
     return re.sub(r"\s+"," ",html.unescape(s or "")).strip()
 
-def parse_prime(page):
+def prime_from_event_page(title, url):
+    page=get(url)
     soup=BeautifulSoup(page,"html.parser")
-    # Separatore esplicito: evita che BeautifulSoup incolli titoli e date.
     text=norm(soup.get_text(" | ",strip=True))
-    events=[]
-    date_rx=re.compile(
-        r"(?:lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)?\\s*"
-        r"(\\d{1,2})\\s+([a-zà]+)(?:\\s+(20\\d{2}))?"
-        r"(?:\\s*(?:\\||-|–|,)??\\s*ore\\s+(\\d{1,2})[.:](\\d{2}))?",
-        re.I,
-    )
-    # La stagione attraversa il Capodanno: novembre/dicembre 2026, poi 2027.
-    for title in FORMS:
-        # Cerca il titolo nel testo visibile e analizza solo il tratto immediatamente
-        # successivo: è indipendente dal fatto che il sito usi table, div o card.
-        pos=text.casefold().find(title.casefold())
-        if pos < 0:
-            # tollera i diversi trattini usati per Balanchine–Čajkovskij
-            probe=re.sub(r"[–—-]", "-", title.casefold())
-            flat=re.sub(r"[–—-]", "-", text.casefold())
-            pos=flat.find(probe)
-        if pos < 0:
+    # Le schede ufficiali mostrano: giorno, mese, ora, Turno Prime.
+    # Cerchiamo una finestra immediatamente precedente alla dicitura Turno Prime.
+    positions=[m.start() for m in re.finditer(r"Turno\\s+Prime",text,re.I)]
+    rx=re.compile(r"(\\d{1,2})\\s+([A-Za-zÀ-ÿ]+)\\s*\\|?\\s*(\\d{1,2})[.:](\\d{2})",re.I)
+    for pos in positions:
+        chunk=text[max(0,pos-180):pos]
+        matches=list(rx.finditer(chunk))
+        if not matches:
             continue
-        chunk=text[pos+len(title):pos+len(title)+260]
-        m=date_rx.search(chunk)
-        if not m:
-            continue
-        day,month,year,hh,mm=m.groups()
-        month_n=MONTHS.get(month.lower())
+        m=matches[-1]
+        day,month,hh,mm=m.groups()
+        month_n=MONTHS.get(month.casefold())
         if not month_n:
             continue
-        if year:
-            y=int(year)
-        else:
-            y=2026 if month_n in (11,12) else 2027
-        # Orario PRIME ufficiale: default 20:00; eccezioni pubblicate 18/19.
-        default_hours={
-            "Samson et Dalila":18,
-            "Macbeth":19,
-            "Tosca":19,
-            "Carmen":19,
-        }
-        hour=int(hh) if hh else default_hours.get(title,20)
-        minute=int(mm) if mm else 0
-        events.append({
-            "title":title,
-            "start":datetime(y,month_n,int(day),hour,minute,tzinfo=TZ)
-        })
+        # La stagione 2026/27 va da novembre 2026 a dicembre 2027.
+        year=2026 if month_n in (11,12) and title in ("Samson et Dalila","Biancaneve") else 2027
+        return {"title":title,"start":datetime(year,month_n,int(day),int(hh),int(mm),tzinfo=TZ)}
+    return None
+
+def parse_prime_from_events(links):
+    events=[]
+    for title in FORMS:
+        url=links.get(title)
+        if not url:
+            continue
+        event=prime_from_event_page(title,url)
+        if event:
+            events.append(event)
     return events
 
 def event_links(season_page):
@@ -184,19 +168,19 @@ def build(events,links):
     return "\r\n".join(fold(x) for x in lines)+"\r\n"
 
 def main():
-    prime=get(PRIME_URL)
-    events=parse_prime(prime)
+    season=get(SEASON_URL)
+    links=event_links(season)
+    events=parse_prime_from_events(links)
     expected=set(FORMS)
     found={e["title"] for e in events}
     if len(events)<12 or not expected.issubset(found):
         print(f"ERRORE: estrazione PRIME incompleta ({len(events)} eventi). File esistente non modificato.",file=sys.stderr)
+        print("Link trovati:",sorted(links),file=sys.stderr)
         print("Mancanti:",sorted(expected-found),file=sys.stderr)
         return 2
-    season=get(SEASON_URL)
-    links=event_links(season)
     data=build(events,links)
     old=OUT.read_text(encoding="utf-8") if OUT.exists() else ""
-    if old.replace("\n","\r\n").replace("\r\r\n","\r\n") == data:
+    if old.replace("\\n","\\r\\n").replace("\\r\\r\\n","\\r\\n") == data:
         print("Calendario invariato.")
         return 0
     OUT.write_bytes(data.encode("utf-8"))
