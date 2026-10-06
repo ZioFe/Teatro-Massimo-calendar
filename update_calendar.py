@@ -49,22 +49,38 @@ def norm(s):
 def parse_prime(page):
     soup=BeautifulSoup(page,"html.parser")
     events=[]
+    # La pagina PRIME specifica gli orari eccezionali; gli altri sono alle 20:00.
     rx=re.compile(
-        r"(?:lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)\s+"
-        r"(\d{1,2})\s+([a-zà]+)(?:\s+(20\d{2}))?\s+ore\s+(\d{1,2})[.:](\d{2})",
+        r"(?:lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)\\s+"
+        r"(\\d{1,2})\\s+([a-zà]+)(?:\\s+(20\\d{2}))?"
+        r"(?:\\s+ore\\s+(\\d{1,2})[.:](\\d{2}))?",
         re.I,
     )
+    last_year=None
     for tr in soup.find_all("tr"):
         cells=[norm(x.get_text(" ",strip=True)) for x in tr.find_all(["th","td"])]
-        if len(cells)<2: continue
+        if len(cells)<2:
+            continue
         title, value=cells[0],cells[1]
+        if title not in FORMS:
+            continue
         m=rx.search(value)
-        if not m: continue
+        if not m:
+            continue
         day,month,year,hh,mm=m.groups()
         month_n=MONTHS.get(month.lower())
-        if not month_n: continue
-        year=int(year) if year else (2027 if month_n <= 12 else 2027)
-        events.append({"title":title,"start":datetime(year,month_n,int(day),int(hh),int(mm),tzinfo=TZ)})
+        if not month_n:
+            continue
+        if year:
+            last_year=int(year)
+        if last_year is None:
+            raise ValueError("Anno non determinabile nella tabella Turno Prime")
+        hour=int(hh) if hh else 20
+        minute=int(mm) if mm else 0
+        events.append({
+            "title":title,
+            "start":datetime(last_year,month_n,int(day),hour,minute,tzinfo=TZ)
+        })
     return events
 
 def event_links(season_page):
