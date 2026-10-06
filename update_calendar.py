@@ -179,6 +179,8 @@ def build(events,links):
         if mins:
             h,m=divmod(mins,60)
             desc.append("Durata: "+((f"{h} h {m} min") if m else f"{h} h"))
+        else:
+            desc.append("Durata: non ancora pubblicata")
         desc += ["Turno Prime", "Fonte ufficiale: "+link]
         lines += ["BEGIN:VEVENT",f"UID:{uid(title)}",
                   f"DTSTART;TZID=Europe/Rome:{start.strftime('%Y%m%dT%H%M%S')}"]
