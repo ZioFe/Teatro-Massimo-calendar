@@ -182,10 +182,27 @@ def uid(title):
     key=("2026-27|prime|"+title.casefold()).encode()
     return hashlib.sha256(key).hexdigest()[:24]+"@teatro-massimo-calendar"
 
-def build(events,links):
+def old_event_meta(old):
+    meta={}
+    for block in old.split("BEGIN:VEVENT")[1:]:
+        uid_m=re.search(r"(?m)^UID:([^\\r\\n]+)",block)
+        if not uid_m:
+            continue
+        seq_m=re.search(r"(?m)^SEQUENCE:(\\d+)",block)
+        stamp_m=re.search(r"(?m)^DTSTAMP:([^\\r\\n]+)",block)
+        hash_m=re.search(r"(?m)^X-CONTENT-HASH:([^\\r\\n]+)",block)
+        meta[uid_m.group(1)]={
+            "sequence":int(seq_m.group(1)) if seq_m else 0,
+            "dtstamp":stamp_m.group(1) if stamp_m else None,
+            "hash":hash_m.group(1) if hash_m else None,
+        }
+    return meta
+
+def build(events,links,old=""):
     lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//ZioFe//Teatro Massimo Turno Prime//IT",
            "CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:Teatro Massimo - Turno Prime",
            "X-WR-TIMEZONE:Europe/Rome","X-PUBLISHED-TTL:PT6H"]
+    previous=old_event_meta(old)
     for e in events:
         title=e["title"]; start=e["start"]
         kind,form=FORMS.get(title,("Spettacolo",None))
@@ -204,7 +221,20 @@ def build(events,links):
         else:
             desc.append("Programma di sala: non ancora disponibile")
         desc += ["Turno Prime", "Fonte ufficiale: "+link]
-        lines += ["BEGIN:VEVENT",f"UID:{uid(title)}",
+        event_uid=uid(title)
+        content_key="|".join([
+            title,start.isoformat(),kind,form or "",str(mins or ""),
+            program_pdf or "non ancora disponibile",link
+        ])
+        content_hash=hashlib.sha256(content_key.encode("utf-8")).hexdigest()[:16]
+        prev=previous.get(event_uid,{})
+        changed=prev.get("hash") != content_hash
+        sequence=prev.get("sequence",0)+(1 if changed else 0)
+        dtstamp=(datetime.now(ZoneInfo("UTC")).strftime("%Y%m%dT%H%M%SZ")
+                 if changed or not prev.get("dtstamp") else prev["dtstamp"])
+        lines += ["BEGIN:VEVENT",f"UID:{event_uid}",
+                  f"DTSTAMP:{dtstamp}",f"SEQUENCE:{sequence}",
+                  f"X-CONTENT-HASH:{content_hash}",
                   f"DTSTART;TZID=Europe/Rome:{start.strftime('%Y%m%dT%H%M%S')}"]
         if mins:
             end=start+timedelta(minutes=mins)
@@ -229,8 +259,8 @@ def main():
         print("Link trovati:",sorted(links),file=sys.stderr)
         print("Mancanti:",sorted(expected-found),file=sys.stderr)
         return 2
-    data=build(events,links)
     old=OUT.read_text(encoding="utf-8") if OUT.exists() else ""
+    data=build(events,links,old)
     if old.replace("\\n","\\r\\n").replace("\\r\\r\\n","\\r\\n") == data:
         print("Calendario invariato.")
         return 0
