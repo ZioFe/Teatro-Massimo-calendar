@@ -3,6 +3,7 @@ import hashlib
 import html
 import re
 import sys
+import subprocess
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urljoin
@@ -42,6 +43,18 @@ def get(url):
     r=requests.get(url,headers={"User-Agent":UA},timeout=30)
     r.raise_for_status()
     return r.text
+
+def get_rendered(url):
+    """Renderizza le pagine che popolano il contenuto via JavaScript."""
+    cmd=[
+        "google-chrome","--headless","--no-sandbox","--disable-gpu",
+        "--disable-dev-shm-usage","--virtual-time-budget=8000",
+        "--dump-dom",url,
+    ]
+    p=subprocess.run(cmd,capture_output=True,text=True,timeout=45)
+    if p.returncode != 0 or len(p.stdout) < 1000:
+        raise RuntimeError("Chrome headless non ha restituito una pagina valida")
+    return p.stdout
 
 def norm(s):
     return re.sub(r"\s+"," ",html.unescape(s or "")).strip()
@@ -171,7 +184,7 @@ def build(events,links):
     return "\r\n".join(fold(x) for x in lines)+"\r\n"
 
 def main():
-    prime=get(PRIME_URL)
+    prime=get_rendered(PRIME_URL)
     events=parse_prime(prime)
     expected=set(FORMS)
     found={e["title"] for e in events}
