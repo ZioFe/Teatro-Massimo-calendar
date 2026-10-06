@@ -12,7 +12,7 @@ import requests
 from bs4 import BeautifulSoup
 from zoneinfo import ZoneInfo
 
-PRIME_URL = "https://www.teatromassimo.it/biglietteria/turno-prime/"
+PRIME_URL = "https://www.teatromassimo.it/en/biglietteria/turno-prime/"
 SEASON_URL = "https://www.teatromassimo.it/la-stagione-2026-27/"
 OUT = Path("teatro-massimo.ics")
 TZ = ZoneInfo("Europe/Rome")
@@ -184,7 +184,7 @@ def build(events,links):
     return "\r\n".join(fold(x) for x in lines)+"\r\n"
 
 def main():
-    prime=get_rendered(PRIME_URL)
+    prime=get(PRIME_URL)
     events=parse_prime(prime)
     expected=set(FORMS)
     found={e["title"] for e in events}
