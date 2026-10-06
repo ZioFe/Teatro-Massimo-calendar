@@ -48,23 +48,29 @@ def norm(s):
 
 def parse_prime(page):
     soup=BeautifulSoup(page,"html.parser")
+    # Separatore esplicito: evita che BeautifulSoup incolli titoli e date.
+    text=norm(soup.get_text(" | ",strip=True))
     events=[]
-    # La pagina PRIME specifica gli orari eccezionali; gli altri sono alle 20:00.
-    rx=re.compile(
-        r"(?:lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)\\s+"
+    date_rx=re.compile(
+        r"(?:lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)?\\s*"
         r"(\\d{1,2})\\s+([a-zà]+)(?:\\s+(20\\d{2}))?"
-        r"(?:\\s+ore\\s+(\\d{1,2})[.:](\\d{2}))?",
+        r"(?:\\s*(?:\\||-|–|,)??\\s*ore\\s+(\\d{1,2})[.:](\\d{2}))?",
         re.I,
     )
-    last_year=None
-    for tr in soup.find_all("tr"):
-        cells=[norm(x.get_text(" ",strip=True)) for x in tr.find_all(["th","td"])]
-        if len(cells)<2:
+    # La stagione attraversa il Capodanno: novembre/dicembre 2026, poi 2027.
+    for title in FORMS:
+        # Cerca il titolo nel testo visibile e analizza solo il tratto immediatamente
+        # successivo: è indipendente dal fatto che il sito usi table, div o card.
+        pos=text.casefold().find(title.casefold())
+        if pos < 0:
+            # tollera i diversi trattini usati per Balanchine–Čajkovskij
+            probe=re.sub(r"[–—-]", "-", title.casefold())
+            flat=re.sub(r"[–—-]", "-", text.casefold())
+            pos=flat.find(probe)
+        if pos < 0:
             continue
-        title, value=cells[0],cells[1]
-        if title not in FORMS:
-            continue
-        m=rx.search(value)
+        chunk=text[pos+len(title):pos+len(title)+260]
+        m=date_rx.search(chunk)
         if not m:
             continue
         day,month,year,hh,mm=m.groups()
@@ -72,14 +78,21 @@ def parse_prime(page):
         if not month_n:
             continue
         if year:
-            last_year=int(year)
-        if last_year is None:
-            raise ValueError("Anno non determinabile nella tabella Turno Prime")
-        hour=int(hh) if hh else 20
+            y=int(year)
+        else:
+            y=2026 if month_n in (11,12) else 2027
+        # Orario PRIME ufficiale: default 20:00; eccezioni pubblicate 18/19.
+        default_hours={
+            "Samson et Dalila":18,
+            "Macbeth":19,
+            "Tosca":19,
+            "Carmen":19,
+        }
+        hour=int(hh) if hh else default_hours.get(title,20)
         minute=int(mm) if mm else 0
         events.append({
             "title":title,
-            "start":datetime(last_year,month_n,int(day),hour,minute,tzinfo=TZ)
+            "start":datetime(y,month_n,int(day),hour,minute,tzinfo=TZ)
         })
     return events
 
