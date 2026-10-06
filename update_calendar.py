@@ -63,21 +63,17 @@ def prime_from_event_page(title, url):
     page=get(url)
     soup=BeautifulSoup(page,"html.parser")
     text=norm(soup.get_text(" | ",strip=True))
-    # Le schede ufficiali mostrano: giorno, mese, ora, Turno Prime.
-    # Cerchiamo una finestra immediatamente precedente alla dicitura Turno Prime.
-    positions=[m.start() for m in re.finditer(r"Turno\\s+Prime",text,re.I)]
-    rx=re.compile(r"(\\d{1,2})\\s+([A-Za-zÀ-ÿ]+)\\s*\\|?\\s*(\\d{1,2})[.:](\\d{2})",re.I)
+    positions=[m.start() for m in re.finditer(r"Turno\s+Prime",text,re.I)]
+    rx=re.compile(r"(\d{1,2})\s+([A-Za-zÀ-ÿ]+)\s*\|?\s*(\d{1,2})[.:](\d{2})",re.I)
     for pos in positions:
         chunk=text[max(0,pos-180):pos]
         matches=list(rx.finditer(chunk))
         if not matches:
             continue
-        m=matches[-1]
-        day,month,hh,mm=m.groups()
+        day,month,hh,mm=matches[-1].groups()
         month_n=MONTHS.get(month.casefold())
         if not month_n:
             continue
-        # La stagione 2026/27 va da novembre 2026 a dicembre 2027.
         year=2026 if month_n in (11,12) and title in ("Samson et Dalila","Biancaneve") else 2027
         return {"title":title,"start":datetime(year,month_n,int(day),int(hh),int(mm),tzinfo=TZ)}
     return None
