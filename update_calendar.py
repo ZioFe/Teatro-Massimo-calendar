@@ -92,10 +92,15 @@ def parse_prime_from_events(links):
 def event_links(season_page):
     soup=BeautifulSoup(season_page,"html.parser")
     links={}
+    def key(value):
+        value=norm(value).casefold()
+        value=re.sub(r"[–—-]+"," ",value)
+        return re.sub(r"\s+"," ",value).strip()
     for a in soup.find_all("a",href=True):
         label=norm(a.get_text(" ",strip=True))
+        label_key=key(label)
         for title in FORMS:
-            if title.casefold() in label.casefold():
+            if key(title) in label_key:
                 links.setdefault(title,urljoin(SEASON_URL,a["href"]))
     return links
 
