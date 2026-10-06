@@ -146,6 +146,23 @@ def duration_from_page(url):
     if m: return int(m.group(1))
     return None
 
+def program_pdf_from_page(url):
+    if not url or url == PRIME_URL:
+        return None
+    try:
+        soup=BeautifulSoup(get(url),"html.parser")
+    except Exception:
+        return None
+    candidates=[]
+    for a in soup.find_all("a",href=True):
+        href=urljoin(url,a["href"])
+        label=norm(a.get_text(" ",strip=True))
+        context=norm((a.parent.get_text(" ",strip=True) if a.parent else label))
+        hay=(label+" "+context+" "+href).casefold()
+        if href.lower().split("?")[0].endswith(".pdf") and re.search(r"programma(?:\\s+di\\s+sala)?|programma\\s+dello\\s+spettacolo",hay,re.I):
+            candidates.append(href)
+    return candidates[0] if candidates else None
+
 def esc(s):
     return str(s).replace("\\","\\\\").replace(";","\\;").replace(",","\\,").replace("\n","\\n")
 
@@ -181,6 +198,11 @@ def build(events,links):
             desc.append("Durata: "+((f"{h} h {m} min") if m else f"{h} h"))
         else:
             desc.append("Durata: non ancora pubblicata")
+        program_pdf=program_pdf_from_page(link)
+        if program_pdf:
+            desc.append("Programma di sala: "+program_pdf)
+        else:
+            desc.append("Programma di sala: non ancora disponibile")
         desc += ["Turno Prime", "Fonte ufficiale: "+link]
         lines += ["BEGIN:VEVENT",f"UID:{uid(title)}",
                   f"DTSTART;TZID=Europe/Rome:{start.strftime('%Y%m%dT%H%M%S')}"]
