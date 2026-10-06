@@ -14,6 +14,7 @@ from zoneinfo import ZoneInfo
 
 PRIME_URL = "https://www.teatromassimo.it/en/biglietteria/turno-prime/"
 SEASON_URL = "https://www.teatromassimo.it/la-stagione-2026-27/"
+UNDER35_URL = "https://www.teatromassimo.it/en/biglietteria/under-35-turni-prime-e-concerti/"
 OUT = Path("teatro-massimo.ics")
 TZ = ZoneInfo("Europe/Rome")
 UA = "Teatro-Massimo-calendar/1.0 (+https://github.com/ZioFe/Teatro-Massimo-calendar)"
@@ -78,13 +79,38 @@ def prime_from_event_page(title, url):
         return {"title":title,"start":datetime(year,month_n,int(day),int(hh),int(mm),tzinfo=TZ)}
     return None
 
+def prime_from_summary(title, url):
+    soup=BeautifulSoup(get(url),"html.parser")
+    text=norm(soup.get_text(" | ",strip=True))
+    def canon(v):
+        return re.sub(r"[–—-]+"," ",v.casefold())
+    flat=canon(text)
+    needle=canon(title)
+    pos=flat.find(needle)
+    if pos < 0:
+        return None
+    chunk=text[pos+len(title):pos+len(title)+180]
+    m=re.search(r"(?:lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)\s+(\d{1,2})\s+([A-Za-zÀ-ÿ]+)(?:\s+(20\d{2}))?(?:\s+ore\s+(\d{1,2})[.:](\d{2}))?",chunk,re.I)
+    if not m:
+        return None
+    day,month,year,hh,mm=m.groups()
+    month_n=MONTHS.get(month.casefold())
+    if not month_n:
+        return None
+    y=int(year) if year else 2027
+    hour=int(hh) if hh else 20
+    minute=int(mm) if mm else 0
+    return {"title":title,"start":datetime(y,month_n,int(day),hour,minute,tzinfo=TZ)}
+
 def parse_prime_from_events(links):
     events=[]
     for title in FORMS:
         url=links.get(title)
-        if not url:
-            continue
-        event=prime_from_event_page(title,url)
+        event=prime_from_event_page(title,url) if url else None
+        if not event:
+            event=prime_from_summary(title,UNDER35_URL)
+            if event and not url:
+                links[title]=PRIME_URL
         if event:
             events.append(event)
     return events
