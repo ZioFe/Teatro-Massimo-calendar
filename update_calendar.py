@@ -4,6 +4,7 @@ import html
 import re
 import sys
 import subprocess
+import time
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urljoin
@@ -41,9 +42,18 @@ FORMS = {
 }
 
 def get(url):
-    r=requests.get(url,headers={"User-Agent":UA},timeout=30)
-    r.raise_for_status()
-    return r.text
+    last_error=None
+    for attempt in range(3):
+        try:
+            r=requests.get(url,headers={"User-Agent":UA},timeout=30)
+            r.raise_for_status()
+            return r.text
+        except requests.RequestException as exc:
+            last_error=exc
+            if attempt<2:
+                print(f"Accesso temporaneamente fallito ({url}): {exc}. Riprovo.",file=sys.stderr)
+                time.sleep(3*(attempt+1))
+    raise last_error
 
 def get_rendered(url):
     """Renderizza le pagine che popolano il contenuto via JavaScript."""
@@ -249,8 +259,12 @@ def build(events,links,old=""):
     return "\r\n".join(fold(x) for x in lines)+"\r\n"
 
 def main():
-    season=get(SEASON_URL)
-    links=event_links(season)
+    try:
+        season=get(SEASON_URL)
+        links=event_links(season)
+    except requests.RequestException as exc:
+        print(f"Fonte ufficiale temporaneamente non raggiungibile: {exc}. Calendario precedente conservato.",file=sys.stderr)
+        return 0 if OUT.exists() and "BEGIN:VEVENT" in OUT.read_text(encoding="utf-8") else 2
     events=parse_prime_from_events(links)
     expected=set(FORMS)
     found={e["title"] for e in events}
