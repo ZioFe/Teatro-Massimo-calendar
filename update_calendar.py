@@ -156,22 +156,24 @@ def duration_from_page(url):
     if m: return int(m.group(1))
     return None
 
-def program_pdf_from_page(url):
+def argomento_from_page(url):
+    """Trova il collegamento ufficiale 'Scarica l'argomento' dello spettacolo."""
     if not url or url == PRIME_URL:
         return None
     try:
         soup=BeautifulSoup(get(url),"html.parser")
-    except Exception:
+    except requests.RequestException:
         return None
-    candidates=[]
     for a in soup.find_all("a",href=True):
-        href=urljoin(url,a["href"])
         label=norm(a.get_text(" ",strip=True))
-        context=norm((a.parent.get_text(" ",strip=True) if a.parent else label))
-        hay=(label+" "+context+" "+href).casefold()
-        if href.lower().split("?")[0].endswith(".pdf") and re.search(r"programma(?:\\s+di\\s+sala)?|programma\\s+dello\\s+spettacolo",hay,re.I):
-            candidates.append(href)
-    return candidates[0] if candidates else None
+        title=norm(a.get("title",""))
+        aria=norm(a.get("aria-label",""))
+        if not re.search(r"\\bargomento\\b", " ".join((label,title,aria)),re.I):
+            continue
+        href=urljoin(url,a["href"].strip())
+        if href.startswith(("https://","http://")) and href != url:
+            return href
+    return None
 
 def esc(s):
     return str(s).replace("\\","\\\\").replace(";","\\;").replace(",","\\,").replace("\n","\\n")
@@ -225,16 +227,16 @@ def build(events,links,old=""):
             desc.append("Durata: "+((f"{h} h {m} min") if m else f"{h} h"))
         else:
             desc.append("Durata: non ancora pubblicata")
-        program_pdf=program_pdf_from_page(link)
-        if program_pdf:
-            desc.append("Programma di sala: "+program_pdf)
+        argomento=argomento_from_page(link)
+        if argomento:
+            desc.append("Argomento: "+argomento)
         else:
-            desc.append("Programma di sala: non ancora disponibile")
+            desc.append("Argomento: non ancora disponibile")
         desc += ["Turno Prime", "Fonte ufficiale: "+link]
         event_uid=uid(title)
         content_key="|".join([
             title,start.isoformat(),kind,form or "",str(mins or ""),
-            program_pdf or "non ancora disponibile",link
+            argomento or "non ancora disponibile",link
         ])
         content_hash=hashlib.sha256(content_key.encode("utf-8")).hexdigest()[:16]
         prev=previous.get(event_uid,{})
