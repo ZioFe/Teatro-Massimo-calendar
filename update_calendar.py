@@ -168,7 +168,7 @@ def argomento_from_page(url):
         label=norm(a.get_text(" ",strip=True))
         title=norm(a.get("title",""))
         aria=norm(a.get("aria-label",""))
-        if not re.search(r"\\bargomento\\b", " ".join((label,title,aria)),re.I):
+        if "argomento" not in " ".join((label,title,aria)).casefold():
             continue
         href=urljoin(url,a["href"].strip())
         if href.startswith(("https://","http://")) and href != url:
