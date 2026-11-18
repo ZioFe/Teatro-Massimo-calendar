@@ -164,10 +164,6 @@ def argomento_from_page(url):
         soup=BeautifulSoup(get(url),"html.parser")
     except requests.RequestException:
         return None
-    if "samson-et-dalila" in url:
-        for node in soup.find_all(string=re.compile("argomento",re.I)):
-            print("DEBUG_ARGOMENTO_NODE:",str(node.parent)[:1800],file=sys.stderr)
-            print("DEBUG_ARGOMENTO_PARENT:",str(node.parent.parent)[:2400],file=sys.stderr)
     for a in soup.find_all("a",href=True):
         label=norm(a.get_text(" ",strip=True))
         title=norm(a.get("title",""))
