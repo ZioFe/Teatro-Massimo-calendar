@@ -258,6 +258,9 @@ def build(events,links,old=""):
         else:
             desc.append("Durata: non ancora pubblicata")
         intervals=intervals_from_page(link)
+        # Durata intervallo confermata dalla comunicazione ufficiale del Teatro.
+        if title == "Samson et Dalila" and intervals is not None and intervals[0] == 1 and intervals[1] is None:
+            intervals=(1,20)
         if intervals is None:
             desc.append("Intervalli: informazioni non ancora pubblicate")
         else:
