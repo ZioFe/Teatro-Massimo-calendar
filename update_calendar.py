@@ -294,7 +294,7 @@ def build(events,links,old=""):
         if mins:
             end=start+timedelta(minutes=mins)
             lines.append(f"DTEND;TZID=Europe/Rome:{end.strftime('%Y%m%dT%H%M%S')}")
-        lines += [f"SUMMARY:{esc(title)}",
+        lines += [f"SUMMARY:{esc('🎭 '+title)}",
                   "LOCATION:"+esc("Teatro Massimo, Piazza Verdi, Palermo"),
                   "CATEGORIES:"+esc(kind),
                   "DESCRIPTION:"+esc("\n".join(desc)),
