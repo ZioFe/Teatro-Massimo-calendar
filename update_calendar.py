@@ -278,7 +278,7 @@ def build(events,links,old=""):
         desc += ["Turno Prime", "Fonte ufficiale: "+link]
         event_uid=uid(title)
         content_key="|".join([
-            title,start.isoformat(),kind,form or "",str(mins or ""),
+            "🎭 "+title,start.isoformat(),kind,form or "",str(mins or ""),
             str(intervals),argomento or "non ancora disponibile",link
         ])
         content_hash=hashlib.sha256(content_key.encode("utf-8")).hexdigest()[:16]
