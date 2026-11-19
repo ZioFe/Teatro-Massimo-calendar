@@ -146,9 +146,6 @@ def duration_from_page(url):
         text=norm(BeautifulSoup(get(url),"html.parser").get_text(" ",strip=True))
     except Exception:
         return None
-    if "samson-et-dalila" in url:
-        for m_debug in re.finditer("durata",text,re.I):
-            print("DEBUG_DURATA:",repr(text[max(0,m_debug.start()-110):m_debug.start()+220]),file=sys.stderr)
     patterns=[
         r"durata\s*(?:dello spettacolo)?\s*[:\-]?\s*(\d+)\s*(?:h|ore)(?:\s*(?:e|:)?\s*(\d{1,2})\s*(?:min|minuti)?)?",
         r"durata\s*[:\-]?\s*(\d+)\s*(?:min|minuti)"
