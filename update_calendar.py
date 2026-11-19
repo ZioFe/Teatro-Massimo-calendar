@@ -156,6 +156,36 @@ def duration_from_page(url):
     if m: return int(m.group(1))
     return None
 
+def intervals_from_page(url):
+    if not url or url == PRIME_URL:
+        return None
+    try:
+        text=norm(BeautifulSoup(get(url),"html.parser").get_text(" ",strip=True))
+    except requests.RequestException:
+        return None
+    for occurrence in list(re.finditer(r"\bdurata\b",text,re.I))[:5]:
+        segment=text[occurrence.start():occurrence.start()+240]
+        segment=re.split(r"\b(?:Cast|Date|Biglietti|Acquista)\b",segment,maxsplit=1)[0]
+        if re.search(r"\bsenza\s+intervall[oi]\b",segment,re.I):
+            return (0,None)
+        if not re.search(r"\bintervall[oi]\b",segment,re.I):
+            continue
+        count=None
+        for word,n in (("un",1),("uno",1),("1",1),("due",2),("2",2),("tre",3),("3",3)):
+            if re.search(r"\b"+word+r"\s+intervall[oi]\b",segment,re.I):
+                count=n
+                break
+        if count is None and re.search(r"\bintervallo\b",segment,re.I):
+            count=1
+        length=None
+        d=re.search(r"\bintervall[oi]\b.{0,55}?\b(?:di|da)\s*(\d{1,3})\s*(?:minuti|min)\b",segment,re.I)
+        if not d:
+            d=re.search(r"\b(\d{1,3})\s*(?:minuti|min)\s+(?:di\s+)?intervallo\b",segment,re.I)
+        if d:
+            length=int(d.group(1))
+        return (count,length)
+    return None
+
 def argomento_from_page(url):
     """Trova il collegamento ufficiale 'Scarica l'argomento' dello spettacolo."""
     if not url or url == PRIME_URL:
@@ -227,6 +257,16 @@ def build(events,links,old=""):
             desc.append("Durata: "+((f"{h} h {m} min") if m else f"{h} h"))
         else:
             desc.append("Durata: non ancora pubblicata")
+        intervals=intervals_from_page(link)
+        if intervals is None:
+            desc.append("Intervalli: informazioni non ancora pubblicate")
+        else:
+            count,length=intervals
+            if count == 0:
+                desc.append("Intervalli: nessuno (confermato)")
+            else:
+                desc.append("Intervalli: "+(str(count) if count is not None else "numero non specificato"))
+                desc.append("Durata intervalli: "+(str(length)+" min ciascuno" if length is not None else "non specificata"))
         argomento=argomento_from_page(link)
         if argomento:
             desc.append("Argomento: "+argomento)
@@ -236,7 +276,7 @@ def build(events,links,old=""):
         event_uid=uid(title)
         content_key="|".join([
             title,start.isoformat(),kind,form or "",str(mins or ""),
-            argomento or "non ancora disponibile",link
+            str(intervals),argomento or "non ancora disponibile",link
         ])
         content_hash=hashlib.sha256(content_key.encode("utf-8")).hexdigest()[:16]
         prev=previous.get(event_uid,{})
