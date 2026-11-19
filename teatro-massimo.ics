@@ -8,213 +8,226 @@ X-WR-TIMEZONE:Europe/Rome
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:8c57c9b3ac7d356d904ee886@teatro-massimo-calendar
-DTSTAMP:20261119T125305Z
+DTSTAMP:20261119T125659Z
 SEQUENCE:1
-X-CONTENT-HASH:1a145e6dd64ac6ec
+X-CONTENT-HASH:4a1fb267f18fb1d3
 DTSTART;TZID=Europe/Rome:20261122T180000
 DTEND;TZID=Europe/Rome:20261122T204500
 SUMMARY:Samson et Dalila
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nOpéra in tre atti e quattro quadri\nDurata: 2 h 45 mi
- n\nArgomento: https://www.teatromassimo.it/wp-content/uploads/2026/11/Arg
- omento_SamsonEtDalila_2026_TM.pdf\nTurno Prime\nFonte ufficiale: https://
- www.teatromassimo.it/event/samson-et-dalila/
+ n\nIntervalli: 1\nDurata intervalli: non specificata\nArgomento: https://
+ www.teatromassimo.it/wp-content/uploads/2026/11/Argomento_SamsonEtDalila_
+ 2026_TM.pdf\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/e
+ vent/samson-et-dalila/
 URL:https://www.teatromassimo.it/event/samson-et-dalila/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:acc831528de46da0fe38c3e3@teatro-massimo-calendar
-DTSTAMP:20261119T125314Z
+DTSTAMP:20261119T125700Z
 SEQUENCE:1
-X-CONTENT-HASH:ec7eec57527560ed
+X-CONTENT-HASH:e8827de299ee1478
 DTSTART;TZID=Europe/Rome:20261215T200000
 SUMMARY:Biancaneve
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nBalletto in tre atti\nDurata: non ancora pubblicata
- \nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: https:
- //www.teatromassimo.it/event/biancaneve-2/
+ \nIntervalli: informazioni non ancora pubblicate\nArgomento: non ancora d
+ isponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/ev
+ ent/biancaneve-2/
 URL:https://www.teatromassimo.it/event/biancaneve-2/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:9bb426daa722a7f243b7c603@teatro-massimo-calendar
-DTSTAMP:20261119T125315Z
+DTSTAMP:20261119T125701Z
 SEQUENCE:1
-X-CONTENT-HASH:54a155b6a2422b5c
+X-CONTENT-HASH:ef5429a8e6f6305e
 DTSTART;TZID=Europe/Rome:20270109T200000
 SUMMARY:Non dirmi che hai paura
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Spettacolo
-DESCRIPTION:Spettacolo\nDurata: non ancora pubblicata\nArgomento: non anc
- ora disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.
- it/event/non-dirmi-che-hai-paura/
+DESCRIPTION:Spettacolo\nDurata: non ancora pubblicata\nIntervalli: inform
+ azioni non ancora pubblicate\nArgomento: non ancora disponibile\nTurno Pr
+ ime\nFonte ufficiale: https://www.teatromassimo.it/event/non-dirmi-che-ha
+ i-paura/
 URL:https://www.teatromassimo.it/event/non-dirmi-che-hai-paura/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:6f1b1a0f9b8a64e25406a424@teatro-massimo-calendar
-DTSTAMP:20261119T125316Z
+DTSTAMP:20261119T125702Z
 SEQUENCE:1
-X-CONTENT-HASH:3327f32d16e4160c
+X-CONTENT-HASH:8dca6ae3fc08d6f1
 DTSTART;TZID=Europe/Rome:20270205T190000
 SUMMARY:Macbeth
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nMelodramma in quattro atti\nDurata: non ancora pubblic
- ata\nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: htt
- ps://www.teatromassimo.it/event/macbeth/
+ ata\nIntervalli: informazioni non ancora pubblicate\nArgomento: non ancor
+ a disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it
+ /event/macbeth/
 URL:https://www.teatromassimo.it/event/macbeth/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:8fe1db1dd786720b7091e008@teatro-massimo-calendar
-DTSTAMP:20261119T125317Z
+DTSTAMP:20261119T125703Z
 SEQUENCE:1
-X-CONTENT-HASH:9b26c8ea1f0c338a
+X-CONTENT-HASH:3e77c7b04c5632b3
 DTSTART;TZID=Europe/Rome:20270305T200000
 SUMMARY:Lucia di Lammermoor
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nDramma tragico in tre atti\nDurata: non ancora pubblic
- ata\nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: htt
- ps://www.teatromassimo.it/event/lucia-di-lammermoor-2/
+ ata\nIntervalli: informazioni non ancora pubblicate\nArgomento: non ancor
+ a disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it
+ /event/lucia-di-lammermoor-2/
 URL:https://www.teatromassimo.it/event/lucia-di-lammermoor-2/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:efaf2d8421f95bcdf6d9ce3e@teatro-massimo-calendar
-DTSTAMP:20261119T125318Z
+DTSTAMP:20261119T125705Z
 SEQUENCE:1
-X-CONTENT-HASH:c0b80f5ca6c69072
+X-CONTENT-HASH:ae1170f2cd133248
 DTSTART;TZID=Europe/Rome:20270323T200000
 SUMMARY:Il grande Gatsby
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
-DESCRIPTION:Balletto\nDurata: non ancora pubblicata\nArgomento: non ancor
- a disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it
- /event/il-grande-gatsby/
+DESCRIPTION:Balletto\nDurata: non ancora pubblicata\nIntervalli: informaz
+ ioni non ancora pubblicate\nArgomento: non ancora disponibile\nTurno Prim
+ e\nFonte ufficiale: https://www.teatromassimo.it/event/il-grande-gatsby/
 URL:https://www.teatromassimo.it/event/il-grande-gatsby/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:c22e73e968aa2f06a0cb50ff@teatro-massimo-calendar
-DTSTAMP:20261119T125319Z
+DTSTAMP:20261119T125705Z
 SEQUENCE:1
-X-CONTENT-HASH:16455dbb439b44a0
+X-CONTENT-HASH:b17cdbdb8cd25b20
 DTSTART;TZID=Europe/Rome:20270418T190000
 SUMMARY:Tosca
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nMelodramma in tre atti\nDurata: non ancora pubblicata\
- nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: https:/
- /www.teatromassimo.it/event/tosca-2/
+ nIntervalli: informazioni non ancora pubblicate\nArgomento: non ancora di
+ sponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/eve
+ nt/tosca-2/
 URL:https://www.teatromassimo.it/event/tosca-2/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:7bb288c70651a14fd03aa2b8@teatro-massimo-calendar
-DTSTAMP:20261119T125320Z
+DTSTAMP:20261119T125706Z
 SEQUENCE:1
-X-CONTENT-HASH:33ed30f7416f1e68
+X-CONTENT-HASH:af92e07c2389e0a3
 DTSTART;TZID=Europe/Rome:20270516T200000
 SUMMARY:Falstaff
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nCommedia lirica in tre atti\nDurata: non ancora pubbli
- cata\nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: ht
- tps://www.teatromassimo.it/event/falstaff-2/
+ cata\nIntervalli: informazioni non ancora pubblicate\nArgomento: non anco
+ ra disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.i
+ t/event/falstaff-2/
 URL:https://www.teatromassimo.it/event/falstaff-2/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:314f4213f20d93b988ed5f50@teatro-massimo-calendar
-DTSTAMP:20261119T125320Z
+DTSTAMP:20261119T125707Z
 SEQUENCE:1
-X-CONTENT-HASH:1d8c4c4766d747cf
+X-CONTENT-HASH:33f4174fce901c96
 DTSTART;TZID=Europe/Rome:20270617T200000
 SUMMARY:Sylvia
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nBalletto in tre atti\nDurata: non ancora pubblicata
- \nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: https:
- //www.teatromassimo.it/event/sylvia/
+ \nIntervalli: informazioni non ancora pubblicate\nArgomento: non ancora d
+ isponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/ev
+ ent/sylvia/
 URL:https://www.teatromassimo.it/event/sylvia/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:4771fb9b07c57ae02e05258f@teatro-massimo-calendar
-DTSTAMP:20261119T125321Z
+DTSTAMP:20261119T125708Z
 SEQUENCE:1
-X-CONTENT-HASH:0a8c2702bc824392
+X-CONTENT-HASH:15438739bd8f5f35
 DTSTART;TZID=Europe/Rome:20270915T200000
 SUMMARY:Die Zauberflöte
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nSingspiel in due atti\nDurata: non ancora pubblicata\n
- Argomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: https://
- www.teatromassimo.it/event/die-zauberflote/
+ Intervalli: informazioni non ancora pubblicate\nArgomento: non ancora dis
+ ponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/even
+ t/die-zauberflote/
 URL:https://www.teatromassimo.it/event/die-zauberflote/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:02dee4b7cc30b70ba9c20637@teatro-massimo-calendar
-DTSTAMP:20261119T125323Z
+DTSTAMP:20261119T125708Z
 SEQUENCE:1
-X-CONTENT-HASH:ce526e4c471f55f4
+X-CONTENT-HASH:e065b4e90fb696ca
 DTSTART;TZID=Europe/Rome:20271009T200000
 SUMMARY:Balanchine – Čajkovskij
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Danza
-DESCRIPTION:Danza\nSpettacolo di danza\nDurata: non ancora pubblicata\nAr
- gomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: https://ww
- w.teatromassimo.it/en/biglietteria/turno-prime/
+DESCRIPTION:Danza\nSpettacolo di danza\nDurata: non ancora pubblicata\nIn
+ tervalli: informazioni non ancora pubblicate\nArgomento: non ancora dispo
+ nibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/en/big
+ lietteria/turno-prime/
 URL:https://www.teatromassimo.it/en/biglietteria/turno-prime/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:de15fc17e1c28dc3fc72d822@teatro-massimo-calendar
-DTSTAMP:20261119T125324Z
+DTSTAMP:20261119T125709Z
 SEQUENCE:1
-X-CONTENT-HASH:1895aa05343834e9
+X-CONTENT-HASH:a9e0d7148947786b
 DTSTART;TZID=Europe/Rome:20271031T200000
 SUMMARY:Ernani
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nDramma lirico in quattro parti\nDurata: non ancora pub
- blicata\nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale:
-  https://www.teatromassimo.it/event/ernani-2/
+ blicata\nIntervalli: informazioni non ancora pubblicate\nArgomento: non a
+ ncora disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassim
+ o.it/event/ernani-2/
 URL:https://www.teatromassimo.it/event/ernani-2/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2dfe027d5e9c572388cbadd2@teatro-massimo-calendar
-DTSTAMP:20261119T125324Z
+DTSTAMP:20261119T125710Z
 SEQUENCE:1
-X-CONTENT-HASH:3fb5b30c2f2d05e3
+X-CONTENT-HASH:3843934d8dd29004
 DTSTART;TZID=Europe/Rome:20271124T190000
 SUMMARY:Carmen
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nOpéra-comique in quattro atti\nDurata: non ancora pub
- blicata\nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale:
-  https://www.teatromassimo.it/event/carmen-3/
+ blicata\nIntervalli: informazioni non ancora pubblicate\nArgomento: non a
+ ncora disponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassim
+ o.it/event/carmen-3/
 URL:https://www.teatromassimo.it/event/carmen-3/
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:178964c1419b7936233b032d@teatro-massimo-calendar
-DTSTAMP:20261119T125325Z
+DTSTAMP:20261119T125711Z
 SEQUENCE:1
-X-CONTENT-HASH:cb90186afb34b670
+X-CONTENT-HASH:73c58fcc2ab82216
 DTSTART;TZID=Europe/Rome:20271214T200000
 SUMMARY:Lo schiaccianoci
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nBalletto in due atti\nDurata: non ancora pubblicata
- \nArgomento: non ancora disponibile\nTurno Prime\nFonte ufficiale: https:
- //www.teatromassimo.it/event/lo-schiaccianoci-4/
+ \nIntervalli: informazioni non ancora pubblicate\nArgomento: non ancora d
+ isponibile\nTurno Prime\nFonte ufficiale: https://www.teatromassimo.it/ev
+ ent/lo-schiaccianoci-4/
 URL:https://www.teatromassimo.it/event/lo-schiaccianoci-4/
 STATUS:CONFIRMED
 END:VEVENT
