@@ -8,12 +8,12 @@ X-WR-TIMEZONE:Europe/Rome
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
 UID:8c57c9b3ac7d356d904ee886@teatro-massimo-calendar
-DTSTAMP:20261119T125853Z
+DTSTAMP:20261119T130653Z
 SEQUENCE:1
 X-CONTENT-HASH:4066bdbc283ee824
 DTSTART;TZID=Europe/Rome:20261122T180000
 DTEND;TZID=Europe/Rome:20261122T204500
-SUMMARY:Samson et Dalila
+SUMMARY:🎭 Samson et Dalila
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nOpéra in tre atti e quattro quadri\nDurata: 2 h 45 mi
@@ -26,11 +26,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:acc831528de46da0fe38c3e3@teatro-massimo-calendar
-DTSTAMP:20261119T125854Z
+DTSTAMP:20261119T130654Z
 SEQUENCE:1
 X-CONTENT-HASH:e8827de299ee1478
 DTSTART;TZID=Europe/Rome:20261215T200000
-SUMMARY:Biancaneve
+SUMMARY:🎭 Biancaneve
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nBalletto in tre atti\nDurata: non ancora pubblicata
@@ -42,11 +42,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:9bb426daa722a7f243b7c603@teatro-massimo-calendar
-DTSTAMP:20261119T125855Z
+DTSTAMP:20261119T130655Z
 SEQUENCE:1
 X-CONTENT-HASH:ef5429a8e6f6305e
 DTSTART;TZID=Europe/Rome:20270109T200000
-SUMMARY:Non dirmi che hai paura
+SUMMARY:🎭 Non dirmi che hai paura
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Spettacolo
 DESCRIPTION:Spettacolo\nDurata: non ancora pubblicata\nIntervalli: inform
@@ -58,11 +58,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:6f1b1a0f9b8a64e25406a424@teatro-massimo-calendar
-DTSTAMP:20261119T125856Z
+DTSTAMP:20261119T130656Z
 SEQUENCE:1
 X-CONTENT-HASH:8dca6ae3fc08d6f1
 DTSTART;TZID=Europe/Rome:20270205T190000
-SUMMARY:Macbeth
+SUMMARY:🎭 Macbeth
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nMelodramma in quattro atti\nDurata: non ancora pubblic
@@ -74,11 +74,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:8fe1db1dd786720b7091e008@teatro-massimo-calendar
-DTSTAMP:20261119T125857Z
+DTSTAMP:20261119T130658Z
 SEQUENCE:1
 X-CONTENT-HASH:3e77c7b04c5632b3
 DTSTART;TZID=Europe/Rome:20270305T200000
-SUMMARY:Lucia di Lammermoor
+SUMMARY:🎭 Lucia di Lammermoor
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nDramma tragico in tre atti\nDurata: non ancora pubblic
@@ -90,11 +90,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:efaf2d8421f95bcdf6d9ce3e@teatro-massimo-calendar
-DTSTAMP:20261119T125857Z
+DTSTAMP:20261119T130658Z
 SEQUENCE:1
 X-CONTENT-HASH:ae1170f2cd133248
 DTSTART;TZID=Europe/Rome:20270323T200000
-SUMMARY:Il grande Gatsby
+SUMMARY:🎭 Il grande Gatsby
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nDurata: non ancora pubblicata\nIntervalli: informaz
@@ -105,11 +105,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:c22e73e968aa2f06a0cb50ff@teatro-massimo-calendar
-DTSTAMP:20261119T125858Z
+DTSTAMP:20261119T130659Z
 SEQUENCE:1
 X-CONTENT-HASH:b17cdbdb8cd25b20
 DTSTART;TZID=Europe/Rome:20270418T190000
-SUMMARY:Tosca
+SUMMARY:🎭 Tosca
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nMelodramma in tre atti\nDurata: non ancora pubblicata\
@@ -121,11 +121,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:7bb288c70651a14fd03aa2b8@teatro-massimo-calendar
-DTSTAMP:20261119T125858Z
+DTSTAMP:20261119T130700Z
 SEQUENCE:1
 X-CONTENT-HASH:af92e07c2389e0a3
 DTSTART;TZID=Europe/Rome:20270516T200000
-SUMMARY:Falstaff
+SUMMARY:🎭 Falstaff
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nCommedia lirica in tre atti\nDurata: non ancora pubbli
@@ -137,11 +137,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:314f4213f20d93b988ed5f50@teatro-massimo-calendar
-DTSTAMP:20261119T125859Z
+DTSTAMP:20261119T130701Z
 SEQUENCE:1
 X-CONTENT-HASH:33f4174fce901c96
 DTSTART;TZID=Europe/Rome:20270617T200000
-SUMMARY:Sylvia
+SUMMARY:🎭 Sylvia
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nBalletto in tre atti\nDurata: non ancora pubblicata
@@ -153,11 +153,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:4771fb9b07c57ae02e05258f@teatro-massimo-calendar
-DTSTAMP:20261119T125900Z
+DTSTAMP:20261119T130702Z
 SEQUENCE:1
 X-CONTENT-HASH:15438739bd8f5f35
 DTSTART;TZID=Europe/Rome:20270915T200000
-SUMMARY:Die Zauberflöte
+SUMMARY:🎭 Die Zauberflöte
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nSingspiel in due atti\nDurata: non ancora pubblicata\n
@@ -169,11 +169,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:02dee4b7cc30b70ba9c20637@teatro-massimo-calendar
-DTSTAMP:20261119T125900Z
+DTSTAMP:20261119T130702Z
 SEQUENCE:1
 X-CONTENT-HASH:e065b4e90fb696ca
 DTSTART;TZID=Europe/Rome:20271009T200000
-SUMMARY:Balanchine – Čajkovskij
+SUMMARY:🎭 Balanchine – Čajkovskij
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Danza
 DESCRIPTION:Danza\nSpettacolo di danza\nDurata: non ancora pubblicata\nIn
@@ -185,11 +185,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:de15fc17e1c28dc3fc72d822@teatro-massimo-calendar
-DTSTAMP:20261119T125901Z
+DTSTAMP:20261119T130703Z
 SEQUENCE:1
 X-CONTENT-HASH:a9e0d7148947786b
 DTSTART;TZID=Europe/Rome:20271031T200000
-SUMMARY:Ernani
+SUMMARY:🎭 Ernani
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nDramma lirico in quattro parti\nDurata: non ancora pub
@@ -201,11 +201,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2dfe027d5e9c572388cbadd2@teatro-massimo-calendar
-DTSTAMP:20261119T125902Z
+DTSTAMP:20261119T130704Z
 SEQUENCE:1
 X-CONTENT-HASH:3843934d8dd29004
 DTSTART;TZID=Europe/Rome:20271124T190000
-SUMMARY:Carmen
+SUMMARY:🎭 Carmen
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Opera
 DESCRIPTION:Opera\nOpéra-comique in quattro atti\nDurata: non ancora pub
@@ -217,11 +217,11 @@ STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:178964c1419b7936233b032d@teatro-massimo-calendar
-DTSTAMP:20261119T125902Z
+DTSTAMP:20261119T130705Z
 SEQUENCE:1
 X-CONTENT-HASH:73c58fcc2ab82216
 DTSTART;TZID=Europe/Rome:20271214T200000
-SUMMARY:Lo schiaccianoci
+SUMMARY:🎭 Lo schiaccianoci
 LOCATION:Teatro Massimo\, Piazza Verdi\, Palermo
 CATEGORIES:Balletto
 DESCRIPTION:Balletto\nBalletto in due atti\nDurata: non ancora pubblicata
